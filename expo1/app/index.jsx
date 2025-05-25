@@ -1,23 +1,29 @@
-import { StyleSheet, Text, View, Image, } from "react-native";
+import { StyleSheet, Image, } from "react-native";
 import { Link } from "expo-router";
 import Logo from '../assets/images/FTC image.png';
+import ThemedView from "../components/ThemedView";
+import ThemedText from "../components/ThemedText";
+import Spacer from "../components/Spacer";
 
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <View style={styles.topContainer}>
+    <ThemedView style={styles.container}>
+      <ThemedView style={styles.topContainer}>
         <Image
           source={Logo}
           style={[styles.logo]}
           resizeMode="contain"
         />
-      </View>
+      </ThemedView>
 
-      <View style={styles.middleContainer}>
-        <Text style={styles.title}>Home and stuff</Text>
-        <Link href="/about" style={styles.link}>About page</Link>
-      </View>
-    </View>
+      <ThemedView style={styles.middleContainer}>
+        <ThemedText style={styles.title} title={true}>Home and stuff</ThemedText>
+        <Spacer height={30} />
+        <Link href="/about" style={styles.link}>
+          <ThemedText>About page</ThemedText>
+        </Link>
+      </ThemedView>
+    </ThemedView>
   );
 }
 
@@ -42,10 +48,8 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 25,
-    marginBottom: 30,
   },
   link: {
     borderBottomWidth: 1,
-    color: 'red'
   },
 });
