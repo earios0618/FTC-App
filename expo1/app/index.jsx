@@ -19,8 +19,11 @@ export default function Home() {
       <ThemedView style={styles.middleContainer}>
         <ThemedText style={styles.title} title={true}>Home and stuff</ThemedText>
         <Spacer height={30} />
-        <Link href="/about" style={styles.link}>
-          <ThemedText>About page</ThemedText>
+        <Link href="/login" style={styles.link}>
+          <ThemedText>Login page</ThemedText>
+        </Link>
+        <Link href="/register" style={styles.link}>
+          <ThemedText>Register page</ThemedText>
         </Link>
       </ThemedView>
     </ThemedView>
@@ -51,5 +54,6 @@ const styles = StyleSheet.create({
   },
   link: {
     borderBottomWidth: 1,
+    marginBottom: 20,
   },
 });
