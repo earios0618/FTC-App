@@ -21,7 +21,11 @@ export default function DashBoardLayout() {
                 name="profile"
                 options={{
                     title: 'Profile', tabBarIcon: ({ focused }) => (
-                        <ProfileTabIcon focused={focused} theme={theme} />
+                        <Ionicons
+                            size={24}
+                            name={focused ? 'person' : 'person-outline'}
+                            color={focused ? theme.iconColorFocused : theme.iconColor}
+                        />
                     )
                 }}
             />
@@ -29,7 +33,11 @@ export default function DashBoardLayout() {
                 name="books"
                 options={{
                     title: 'Books', tabBarIcon: ({ focused }) => (
-                        <BooksTabIcon focused={focused} theme={theme} />
+                        <Ionicons
+                            size={24}
+                            name={focused ? 'book' : 'book-outline'}
+                            color={focused ? theme.iconColorFocused : theme.iconColor}
+                        />
                     )
                 }}
             />
@@ -37,31 +45,15 @@ export default function DashBoardLayout() {
                 name="create"
                 options={{
                     title: 'Create', tabBarIcon: ({ focused }) => (
-                        <CreateTabIcon focused={focused} theme={theme} />
+                        <Ionicons
+                            size={24}
+                            name={focused ? 'create' : 'create-outline'}
+                            color={focused ? theme.iconColorFocused : theme.iconColor}
+                        />
                     )
                 }}
             />
         </Tabs>
     )
 }
-const ProfileTabIcon = ({ focused, theme }) => (
-    <Ionicons
-        size={24}
-        name={focused ? 'person' : 'person-outline'}
-        color={focused ? theme.iconColorFocused : theme.iconColor}
-    />
-);
-const BooksTabIcon = ({ focused, theme }) => (
-    <Ionicons
-        size={24}
-        name={focused ? 'book' : 'book-outline'}
-        color={focused ? theme.iconColorFocused : theme.iconColor}
-    />
-);
-const CreateTabIcon = ({ focused, theme }) => (
-    <Ionicons
-        size={24}
-        name={focused ? 'create' : 'create-outline'}
-        color={focused ? theme.iconColorFocused : theme.iconColor}
-    />
-);
+
