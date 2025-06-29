@@ -1,10 +1,11 @@
 import { Tabs } from "expo-router";
 import { useColorScheme } from "react-native";
 import { Colors } from "../../constants/Colors";
+import { Ionicons } from '@expo/vector-icons';
 
 export default function DashBoardLayout() {
     const colorScheme = useColorScheme()
-    const theme = Colors[colorScheme] ?? Color.light
+    const theme = Colors[colorScheme] ?? Colors.light
     return (
         <Tabs
             screenOptions={{
@@ -18,16 +19,49 @@ export default function DashBoardLayout() {
         >
             <Tabs.Screen
                 name="profile"
-                options={{ title: 'Profile' }}
+                options={{
+                    title: 'Profile', tabBarIcon: ({ focused }) => (
+                        <ProfileTabIcon focused={focused} theme={theme} />
+                    )
+                }}
             />
             <Tabs.Screen
                 name="books"
-                options={{ title: 'Books' }}
+                options={{
+                    title: 'Books', tabBarIcon: ({ focused }) => (
+                        <BooksTabIcon focused={focused} theme={theme} />
+                    )
+                }}
             />
             <Tabs.Screen
                 name="create"
-                options={{ title: 'Create' }}
+                options={{
+                    title: 'Create', tabBarIcon: ({ focused }) => (
+                        <CreateTabIcon focused={focused} theme={theme} />
+                    )
+                }}
             />
         </Tabs>
     )
 }
+const ProfileTabIcon = ({ focused, theme }) => (
+    <Ionicons
+        size={24}
+        name={focused ? 'person' : 'person-outline'}
+        color={focused ? theme.iconColorFocused : theme.iconColor}
+    />
+);
+const BooksTabIcon = ({ focused, theme }) => (
+    <Ionicons
+        size={24}
+        name={focused ? 'book' : 'book-outline'}
+        color={focused ? theme.iconColorFocused : theme.iconColor}
+    />
+);
+const CreateTabIcon = ({ focused, theme }) => (
+    <Ionicons
+        size={24}
+        name={focused ? 'create' : 'create-outline'}
+        color={focused ? theme.iconColorFocused : theme.iconColor}
+    />
+);
